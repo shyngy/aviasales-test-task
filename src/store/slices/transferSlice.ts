@@ -23,7 +23,6 @@ export const transferSlice = createSlice({
       state.checkboxes = [all, ...rest];
     },
   },
-
 });
 
 export const { setTransferCheckboxes } = transferSlice.actions;

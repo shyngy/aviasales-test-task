@@ -3,9 +3,7 @@ import config from './config';
 import { ResponseTicketData } from '../types';
 
 interface SearchIdData {
-
-  searchId: string
-
+  searchId: string;
 }
 
 const api = {
@@ -14,10 +12,10 @@ const api = {
     return data.searchId;
   },
 
-  getTickets: (searchId: string):
-  Promise<ResponseTicketData> => new Promise((resolve, reject) => {
+  getTickets: (searchId: string): Promise<ResponseTicketData> => new Promise((resolve, reject) => {
     const intervalId = setTimeout(() => {
-      axios.get(config.ticketUrl + searchId)
+      axios
+        .get(config.ticketUrl + searchId)
         .then((response) => {
           if (response.data.stop || response.status !== 200) clearTimeout(intervalId);
           resolve(response.data);

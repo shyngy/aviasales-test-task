@@ -11,7 +11,7 @@ const optionSlice = createSlice({
   name: 'option',
   initialState,
   reducers: {
-    setActiveTab: (state, action:PayloadAction<string>) => {
+    setActiveTab: (state, action: PayloadAction<string>) => {
       let current = state.activeTab;
 
       optionTabs.forEach((item) => {

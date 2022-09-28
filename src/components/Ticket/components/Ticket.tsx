@@ -7,7 +7,7 @@ interface TicketProps extends TicketType {
   stopSkeleton: boolean;
 }
 
-const Ticket: React.FC<TicketProps > = ({
+const Ticket: React.FC<TicketProps> = ({
   price, segments, carrier, stopSkeleton,
 }) => (
   <article className={`ticket ${!stopSkeleton && 'skeleton'}`}>
@@ -17,7 +17,7 @@ const Ticket: React.FC<TicketProps > = ({
     </header>
     {segments.map((segment) => (
       <TicketSegment
-        key={segment.date}
+        key={segment.duration + segment.date}
         destination={segment.destination}
         date={segment.date}
         duration={segment.duration}

@@ -9,6 +9,7 @@ import { moreItems } from './store/slices/ticketSlice';
 
 const App = () => {
   const dispatch = useAppDispatch();
+
   const moreLoadClick = () => {
     dispatch(moreItems());
   };
@@ -18,14 +19,15 @@ const App = () => {
       <div className="logo">
         <img alt="logo" src={logo} />
       </div>
-
       <Filter />
       <section className="content-container">
         <Tabs />
         <Tickets />
-        <button onClick={moreLoadClick} type="button">еще 5 </button>
+        <button onClick={moreLoadClick} type="button">
+          еще 5
+          {' '}
+        </button>
       </section>
-
     </div>
   );
 };

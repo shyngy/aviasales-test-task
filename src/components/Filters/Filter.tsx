@@ -12,9 +12,7 @@ const Filter: React.FC<FilterProps> = ({
 }) => (
   <label htmlFor={name} className="filter">
     <input onChange={onClickFilter} checked={checked} id={name} type="checkbox" />
-    <div>
-      {displayName}
-    </div>
+    <div>{displayName}</div>
   </label>
 );
 

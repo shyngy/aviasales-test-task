@@ -12,14 +12,7 @@ const TicketLoading = () => (
     style={{ marginTop: 15, borderRadius: 10 }}
   >
     <title id="loading-aria">Loading...</title>
-    <rect
-      x="0"
-      y="0"
-      width="100%"
-      height="100%"
-      clipPath="url(#clip-path)"
-      fill="url(#fill)"
-    />
+    <rect x="0" y="0" width="100%" height="100%" clipPath="url(#clip-path)" fill="url(#fill)" />
     <defs>
       <clipPath id="clip-path">
         <rect x="300" y="191" rx="0" ry="0" width="5" height="12" />
@@ -28,11 +21,7 @@ const TicketLoading = () => (
         <rect x="0" y="0" rx="12" ry="12" width="499" height="175" />
       </clipPath>
       <linearGradient id="fill">
-        <stop
-          offset="0.599964"
-          stopColor="#FDFDFD"
-          stopOpacity="1"
-        >
+        <stop offset="0.599964" stopColor="#FDFDFD" stopOpacity="1">
           <animate
             attributeName="offset"
             values="-2; -2; 1"
@@ -41,11 +30,7 @@ const TicketLoading = () => (
             repeatCount="indefinite"
           />
         </stop>
-        <stop
-          offset="1.59996"
-          stopColor="#ffffff"
-          stopOpacity="1"
-        >
+        <stop offset="1.59996" stopColor="#ffffff" stopOpacity="1">
           <animate
             attributeName="offset"
             values="-1; -1; 2"
@@ -54,11 +39,7 @@ const TicketLoading = () => (
             repeatCount="indefinite"
           />
         </stop>
-        <stop
-          offset="2.59996"
-          stopColor="#FDFDFD"
-          stopOpacity="1"
-        >
+        <stop offset="2.59996" stopColor="#FDFDFD" stopOpacity="1">
           <animate
             attributeName="offset"
             values="0; 0; 3"
