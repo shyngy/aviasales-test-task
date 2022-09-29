@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import {
-  fetchTicket,
+  fetchTicket, moreItems,
   selectDisplayTickets,
   selectIsLoadingTickets,
   selectStop,
@@ -18,6 +18,9 @@ const Tickets = () => {
     dispatch(fetchTicket());
   }, [dispatch]);
 
+  const moreLoadClick = () => {
+    dispatch(moreItems());
+  };
   return (
     <div>
       {isLoading
@@ -27,13 +30,22 @@ const Tickets = () => {
       {!isLoading
         && tickets.map((ticket) => (
           <Ticket
-            key={ticket.price + ticket.segments[0].duration + ticket.segments[1].duration}
+            key={ticket.id}
             segments={ticket.segments}
             carrier={ticket.carrier}
             price={ticket.price}
             stopSkeleton={stopItems}
           />
         ))}
+      {!isLoading && tickets.length === 0 && (
+      <div className="not-found">Ничего не было найденно :(</div>
+      )}
+      {tickets.length >= 5 && (
+      <button className="button" onClick={moreLoadClick} type="button">
+        Показать еще 5 билетов!
+      </button>
+      )}
+
     </div>
   );
 };

@@ -2,7 +2,7 @@ import React from 'react';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { selectTransferCheckboxes, setTransferCheckboxes } from '../../store/slices/transferSlice';
 import Filter from './Filter';
-import { rootSort, selectTicketsLength } from '../../store/slices/ticketSlice';
+import { sortTickets, selectTicketsLength } from '../../store/slices/ticketSlice';
 
 const Filters = () => {
   const transfers = useAppSelector(selectTransferCheckboxes);
@@ -14,8 +14,8 @@ const Filters = () => {
   };
 
   React.useEffect(() => {
-    dispatch(rootSort());
-  }, [transfers, ticketsLength]);
+    dispatch(sortTickets());
+  }, [transfers, ticketsLength, dispatch]);
   return (
     <section className="filter-container">
       <h2>Количество пересадок</h2>

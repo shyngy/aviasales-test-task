@@ -4,7 +4,7 @@ import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { selectActiveTab, setActiveTab } from '../../store/slices/optionSlice';
 import { optionTabs } from '../../store/utils';
 import Tab from './Tab';
-import { selectIsLoadingTickets, rootSort } from '../../store/slices/ticketSlice';
+import { selectIsLoadingTickets, sortTickets } from '../../store/slices/ticketSlice';
 
 const Tabs = () => {
   const activeTab = useAppSelector(selectActiveTab);
@@ -15,7 +15,7 @@ const Tabs = () => {
     if (activeTab.name === event.currentTarget.name) return;
     dispatch(setActiveTab(event.currentTarget.name));
     setTransition(() => {
-      dispatch(rootSort());
+      dispatch(sortTickets());
     });
   };
 

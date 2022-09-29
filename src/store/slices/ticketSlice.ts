@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { v4 as uuidv4 } from 'uuid';
 import type { RootState } from '../index';
 
 import api from '../api';
@@ -50,7 +51,7 @@ const sortByTransfers = (
     if (chunks.length >= displayItemsLength) break;
     const [{ stops: stops1 }, { stops: stops2 }] = tickets[index].segments;
     if (transfers.includes(stops1.length) && transfers.includes(stops2.length)) {
-      chunks.push(tickets[index]);
+      chunks.push({ ...tickets[index], id: uuidv4() });
     }
   }
   return chunks;
@@ -108,9 +109,8 @@ type AllTickets = {
   prevData: TicketItem;
 };
 
-export const rootSort = createAsyncThunk('ticket/sort', (...arg) => {
+export const sortTickets = createAsyncThunk('ticket/sort', (...arg) => {
   const thunkApi = arg[1];
-  thunkApi.dispatch(setLoading(true));
   const rootState = thunkApi.getState() as RootState;
   thunkApi.dispatch(
     sortItems({
