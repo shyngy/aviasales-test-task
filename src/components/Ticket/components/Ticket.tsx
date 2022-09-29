@@ -4,13 +4,13 @@ import TicketSegment from './TicketSegment';
 import type { Ticket as TicketType } from '../../../store/types';
 
 interface TicketProps extends TicketType {
-  stopSkeleton: boolean;
+  stop: boolean;
 }
 
 const Ticket: React.FC<TicketProps> = ({
-  price, segments, carrier, stopSkeleton,
+  price, segments, carrier, stop,
 }) => (
-  <article className={`ticket ${!stopSkeleton && 'skeleton'}`}>
+  <article className={`ticket ${!stop && 'stopItem'}`}>
     <header className="ticket__header">
       <strong>{`${price} Р`}</strong>
       <img alt="logo" src={`https://pics.avs.io/99/36/${carrier}.png`} />

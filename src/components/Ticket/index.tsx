@@ -22,11 +22,12 @@ const Tickets = () => {
     dispatch(moreItems());
   };
   return (
-    <div>
+    <div className="tickets">
       {isLoading
         && Array(5)
           .fill(null)
           .map(() => <TicketLoading key={Math.random()} />)}
+      {!isLoading && !stopItems && <div className="loader-line" />}
       {!isLoading
         && tickets.map((ticket) => (
           <Ticket
@@ -34,7 +35,7 @@ const Tickets = () => {
             segments={ticket.segments}
             carrier={ticket.carrier}
             price={ticket.price}
-            stopSkeleton={stopItems}
+            stop={stopItems}
           />
         ))}
       {!isLoading && tickets.length === 0 && (
