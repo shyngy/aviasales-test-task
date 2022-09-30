@@ -1,1 +1,1 @@
-https://movie-app-steel-pi.vercel.app/
+https://aviasales-test-task-delta.vercel.app/
